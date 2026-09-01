@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculater</title>
+    
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .calculator {
+            width: 300px;
+            margin: 80px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        #display {
+            width: 90%;
+            height: 50px;
+            font-size: 25px;
+            text-align: right;
+            margin-bottom: 15px;
+            padding: 5px;
+        }
+
+        button {
+            width: 60px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: lightgray;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: gray;
+            color: white;
+        }
+
+        .operator {
+            background-color: orange;
+        }
+
+        .equal {
+            background-color: green;
+            color: white;
+        }
+
+        .clear {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <h2>Simple Calculator</h2>
+
+        <input type="text" id="display" value="0" readonly>
+
+        <br>
+
+        <button class="clear" onclick="clearDisplay()">C</button>
+        <button onclick="addValue('7')">7</button>
+        <button onclick="addValue('8')">8</button>
+        <button onclick="addValue('9')">9</button>
+
+        <br>
+
+        <button onclick="addValue('4')">4</button>
+        <button onclick="addValue('5')">5</button>
+        <button onclick="addValue('6')">6</button>
+        <button class="operator" onclick="addValue('+')">+</button>
+
+        <br>
+
+        <button onclick="addValue('1')">1</button>
+        <button onclick="addValue('2')">2</button>
+        <button onclick="addValue('3')">3</button>
+        <button class="operator" onclick="addValue('-')">-</button>
+
+        <br>
+
+        <button onclick="addValue('0')">0</button>
+        <button class="operator" onclick="addValue('*')">*</button>
+        <button class="operator" onclick="addValue('/')">/</button>
+        <button class="equal" onclick="calculate()">=</button>
+
+    </div>
+
+
+    <script>
+
+        var display = document.getElementById("display");
+
+
+        function addValue(value) {
+
+            if (display.value == "0") {
+                display.value = value;
+            }
+            else {
+                display.value = display.value + value;
+            }
+        }
+
+
+        function clearDisplay() {
+            display.value = "0";
+        }
+
+
+        function calculate() {
+
+            var answer = eval(display.value);
+
+            display.value = answer;
+        }
+
+    </script>
+
+</body>
+</html>
